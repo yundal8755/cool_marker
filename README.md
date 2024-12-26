@@ -3,8 +3,8 @@
 
 <br>
 
-## 예제 소개
-이 예제는 Google Maps 위에 `베이스 마커 이미지`와 `사용자 첨부 이미지`를 합성하여 **Custom Marker**를 만드는 방법을 다룹니다.
+## 1️⃣ 소개
+해당 소스코드는 Google Maps 위에 `베이스 마커 이미지`와 `사용자 첨부 이미지`를 합성하여 **Custom Marker**를 적용했습니다.
 
 <br>
 
@@ -18,18 +18,17 @@
 ![image](https://github.com/user-attachments/assets/7cbc8025-4c58-4a39-8bca-40d90ca25ae4)
 
 이를 통해 나만의 개성 있는 Custom Marker를 구현할 수 있습니다.
-<br>
-Flutter의 `google_maps_flutter` 패키지를 사용해 지도를 활용하고 싶은 분들께 유용한 예제입니다.
 
 <br>
 
-## Google Maps API 키 설정
-### google_maps_flutter 패키지 설치
-저는 fvm 3.22.2 버전을 사용하여 해당 예제를 만들었습니다. 
+## 2️⃣ Google Maps API 키 설정
+저는 fvm 3.22.2 버전을 사용하여 만들었습니다. 
 <br>
-이를 참고하여 pubspec.yaml에 `google_maps_flutter` 패키지를 추가하고 Native Platform을 설정하시면 됩니다.
+이를 참고하여 pubspec.yaml에 `google_maps_flutter` 패키지를 추가하고 플랫폼별 설정을 하시면 됩니다.
 
-### iOS 설정
+<br>
+
+### 2-1. iOS 설정
 iOS 프로젝트에서는 Google Maps API 키를 아래 위치에 추가합니다.
 1. **`AppDelegate.swift`** 파일 열기
 2. `GMSServices.provideAPIKey`에 API 키 추가
@@ -55,7 +54,7 @@ import GoogleMaps
 
 <br>
 
-### Android 설정
+### 2-2. Android 설정
 Android 프로젝트에서는 Google Maps API 키를 아래 위치에 추가합니다.
 1. **`android/app/src/main/AndroidManifest.xml`** 파일 열기
 2. `<meta-data>` 태그에 API 키 추가
