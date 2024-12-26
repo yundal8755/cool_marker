@@ -1,16 +1,70 @@
-# abc
+# [Flutter] 나만의 Google Map Marker 만들기
+![velog 썸네일](https://github.com/user-attachments/assets/851e1de8-d45b-43b3-b39d-68d5b3326a34)
 
-A new Flutter project.
+<br>
 
-## Getting Started
+## 예제 소개
+이 예제는 Google Maps 위에 `베이스 마커 이미지`와 `사용자 첨부 이미지`를 합성하여 **Custom Marker**를 만드는 방법을 다룹니다.
 
-This project is a starting point for a Flutter application.
+<br>
 
-A few resources to get you started if this is your first Flutter project:
+<주요 과정>
+1. 베이스 마커 이미지와 사용자 이미지를 불러오기
+2. `Canvas`를 활용해 두 이미지를 합성
+3. 합성 이미지를 `BitmapDescriptor`로 변환하여 Google Maps에 표시
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<br>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![image](https://github.com/user-attachments/assets/7cbc8025-4c58-4a39-8bca-40d90ca25ae4)
+
+이를 통해 나만의 개성 있는 Custom Marker를 구현할 수 있습니다.
+<br>
+Flutter의 `google_maps_flutter` 패키지를 사용해 지도를 활용하고 싶은 분들께 유용한 예제입니다.
+
+<br>
+
+## Google Maps API 키 설정
+### google_maps_flutter 패키지 설치
+저는 fvm 3.22.2 버전을 사용하여 해당 예제를 만들었습니다. 
+<br>
+이를 참고하여 pubspec.yaml에 `google_maps_flutter` 패키지를 추가하고 Native Platform을 설정하시면 됩니다.
+
+### iOS 설정
+iOS 프로젝트에서는 Google Maps API 키를 아래 위치에 추가합니다.
+1. **`AppDelegate.swift`** 파일 열기
+2. `GMSServices.provideAPIKey`에 API 키 추가
+
+```dart
+import Flutter
+import UIKit
+import GoogleMaps
+
+@main
+@objc class AppDelegate: FlutterAppDelegate {
+  override func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    GMSServices.provideAPIKey("GoogleMapKey") // 여기에 Google Maps API 키를 입력
+    GeneratedPluginRegistrant.register(with: self)
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+}
+
+```
+
+<br>
+
+### Android 설정
+Android 프로젝트에서는 Google Maps API 키를 아래 위치에 추가합니다.
+1. **`android/app/src/main/AndroidManifest.xml`** 파일 열기
+2. `<meta-data>` 태그에 API 키 추가
+
+```dart
+<application>
+    <!-- Google Maps API 키 추가 -->
+    <meta-data
+        android:name="com.google.android.maps.v2.API_KEY"
+        android:value="GoogleMapKey" /> <!-- 여기에 Google Maps API 키를 입력 -->
+</application>
+```
